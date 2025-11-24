@@ -1,0 +1,115 @@
+.combo-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 2px solid #e3e6f0;
+}
+
+.combo-section h5 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Combo Item */
+.combo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e3e6f0;
+    border-radius: 10px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.combo-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+/* Ảnh combo */
+.combo-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* Nội dung combo */
+.combo-item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+/* Tên combo và giá */
+.combo-item-content strong {
+    font-size: 15px;
+    color: #333;
+}
+.combo-item-content small {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Số lượng combo */
+.combo-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.btn-minus, .btn-plus {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-minus:hover, .btn-plus:hover {
+    background: #667eea;
+    color: white;
+}
+
+.quantity-input {
+    width: 50px;
+    height: 32px;
+    text-align: center;
+    border: 2px solid #e3e6f0;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #667eea;
+    background: #f8f9fa;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .combo-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .combo-item img {
+        width: 100%;
+        height: auto;
+    }
+    .combo-quantity {
+        margin-top: 10px;
+    }
+}

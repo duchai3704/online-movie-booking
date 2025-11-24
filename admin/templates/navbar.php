@@ -6,7 +6,7 @@
     	<?php
     		if (isset($_SESSION['admin'])) {
     			?>
-    				<a class="nav-link" href="../admin/admin-logout.php">Sign out</a>
+    				<a class="nav-link" href="admin-logout.php">Sign out</a>
     			<?php
     		}
     	?>

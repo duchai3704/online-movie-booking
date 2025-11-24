@@ -10,7 +10,7 @@ if (isset($_POST['submit']))
  	$city=$_POST['city'];
  	$password=$_POST['password'];
 	$filename=$_FILES['image']['name'];
-	echo $filename;
+	// echo $filename;
 $location='admin/image/'.$filename;
 
 
@@ -35,8 +35,8 @@ $status=1;
 	}
 	else
 	{
-		echo "hii";
-	 //echo "<script>window.location = 'login_form.php';</script>";
+		
+	 echo "<script>window.location = 'login_form.php';</script>";
 	}
 
 }

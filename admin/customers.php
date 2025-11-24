@@ -25,9 +25,7 @@ if (!isset($_SESSION['admin'])) {
       	<div class="col-10">
       		<h2>Customers</h2>
       	</div>
-        <div class="col-2">
-          <button data-toggle="modal" data-target="#add_custemer_modal" class="btn btn-primary btn-sm">Add Movie</button>
-        </div>
+       
       </div>
       
       <div class="table-responsive">
@@ -37,21 +35,22 @@ if (!isset($_SESSION['admin'])) {
               <th>id</th>
               <th>Name</th>
               <th>Movie</th>
-              <th>Theater</th>
-              <th>Show_time</th>
+              <th>Show</th>
+              <th>Booking Date</th>
               <th>Seat</th>
               <th>Total Seat</th>
               <th>Price</th>
+              <th>Combos</th>
               <th>Payment Date</th>
               <th>Booking Date</th>
-              <th>Custemer</th>
+              <th>Customer</th>
             </tr>
           </thead>
           <tbody id="customer_list">
            <tbody id="product_list">
             <?php
 include_once 'Database.php';
-$result = mysqli_query($conn,"SELECT c.id,c.movie,c.booking_date,c.show_time,c.seat,c.totalseat,c.price,c.payment_date,c.custemer_id,u.username,t.theater FROM customers c INNER JOIN user u on c.uid = u.id INNER JOIN theater_show t on c.show_time = t.show");
+$result = mysqli_query($conn,"SELECT c.id,c.movie,c.booking_date ,c.seat,c.totalseat,c.price,c.combo,c.payment_date,c.custemer_id,u.username,t.theater FROM customers c INNER JOIN user u on c.uid = u.id INNER JOIN theater_show t on c.show_time = t.show");
 
 if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_array($result)) {
@@ -62,10 +61,11 @@ if (mysqli_num_rows($result) > 0) {
               <td><?php echo $row['movie'];?></td>
               <td><?php echo $row['theater'];?></td>
               <td><?php echo $row['booking_date'];?></td>
-              <td><?php echo $row['show_time'];?></td>
+        
               <td><?php echo $row['seat'];?></td>
               <td><?php echo $row['totalseat'];?></td>
               <td><?php echo $row['price'];?></td>
+              <td><?php echo $row['combo'];?></td>
               <td><?php echo $row['payment_date'];?></td>
               <td><?php echo $row['custemer_id'];?></td>
                             

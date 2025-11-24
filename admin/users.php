@@ -26,7 +26,7 @@ if (!isset($_SESSION['admin'])) {
       		<h2>Users</h2>
       	</div>
       	<div class="col-2">
-      		<a href="#" data-toggle="modal" data-target="#add_users_modal" class="btn btn-primary btn-sm">Users detail</a>
+      		<a href="#" data-toggle="modal" data-target="#add_users_modal" class="btn btn-primary btn-sm">Add Users</a>
       	</div>
       </div>
       
@@ -41,13 +41,20 @@ if (!isset($_SESSION['admin'])) {
               <th>city</th>
               <th>password</th>
               <th>image</th>
+              <th>Balance</th>
               <th>Action</th>
+
             </tr>
           </thead>
           <tbody id="product_list">
            <?php
 include_once 'Database.php';
-$result = mysqli_query($conn,"SELECT * FROM user");
+$result = mysqli_query($conn,"
+    SELECT u.*
+    FROM user u
+    ORDER BY u.id
+");
+
 
 if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_array($result)) {
@@ -60,6 +67,7 @@ if (mysqli_num_rows($result) > 0) {
               <td><?php echo $row['city'];?></td>
               <td><?php echo $row['password'];?></td>
               <td><img src="image/<?php echo $row['image']; ?>" alt="" class="resize"></td>
+              <td><?php echo number_format($row['balance'], 0, ',', '.'); ?> VND</td>
               <td><button data-toggle="modal" type="button" data-target="#edit_users_modal<?php echo $id;?>" class="btn btn-primary btn-sm">Edit Movie</button>
               <button data-toggle="modal" type="button" data-target="#delete_users_modal<?php echo $id;?>" class="btn btn-danger btn-sm">Delete Movie</button></td></td>
             </tr>

@@ -1,0 +1,155 @@
+/* 💰 payment_style.css - Phong cách Trang Thanh toán Tối giản & Hiện đại (2 Cột) */
+
+/* === GLOBAL STYLES === */
+body {
+    background-color: #f0f3f6; /* Nền xám xanh rất nhạt, dịu mắt */
+    font-family: 'Nunito Sans', sans-serif;
+    color: #495057; 
+    padding: 20px 0;
+}
+
+/* Tiêu đề chính */
+.display-6 {
+    font-weight: 900;
+    color: #1e3a8a; /* Màu xanh đậm hơn, uy tín */
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* === CARD CONTAINER === */
+.card {
+    border: 1px solid #e0e6ed;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    height: 100%; /* Đảm bảo cả hai card có chiều cao bằng nhau trong cột */
+}
+
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 1.5rem 2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+/* === BOOKING SUMMARY SECTION (CỘT TRÁI) === */
+.summary-card .card-body {
+    padding: 1.5rem 2rem 0.5rem 2rem;
+}
+
+/* Điều chỉnh khối thông tin chi tiết (2 cột bên trong summary) */
+.summary-card .row {
+    padding: 0;
+    margin-left: -15px; 
+    margin-right: -15px;
+}
+
+/* Khối thông tin chi tiết */
+.summary-card .row div[class^="col-lg"] {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 15px;
+    margin: 0 0 15px 0;
+    
+    background-color: #fbfdff; 
+    border-radius: 12px;
+    border: 1px solid #dcdfe3;
+    border-left: 6px solid #007bff;
+    color: #555;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Làm nổi bật giá trị (sử dụng thẻ <b>) */
+.summary-card .row div[class^="col-lg"] b {
+    font-weight: 700;
+    color: #1e3a8a;
+    display: inline-block; /* Để giá trị không bị xuống dòng */
+    margin-left: 5px;
+}
+
+/* Thẻ tổng tiền mới, nổi bật */
+.total-price-display {
+    text-align: center;
+    padding: 15px 20px;
+    margin: 20px 0; /* Khoảng cách lớn hơn */
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    background-color: #e6f0ff;
+    border-radius: 10px;
+    border: 1px dashed #007bff;
+}
+.total-price-display span {
+    color: #dc3545; /* Màu đỏ nổi bật cho giá trị tiền */
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-left: 10px;
+}
+
+/* Loại bỏ hoàn toàn khối "Amount Payable" (front) */
+.front {
+    display: none !important;
+}
+
+
+/* === PAYMENT FORM SECTION (CỘT PHẢI) === */
+
+.payment-card .tab-pane.active {
+    padding: 1rem 2rem 0 2rem;
+}
+.form-group h6 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+.form-control {
+    border-radius: 10px;
+    height: 50px;
+    border: 1px solid #d9e2ec;
+    background-color: #f7f9fb;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+.form-control:focus {
+    border-color: #007bff;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+/* Card Footer cho nút thanh toán */
+.payment-card .card-footer {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-top: none;
+}
+.subscribe {
+    background: linear-gradient(90deg, #1e3a8a 0%, #007bff 100%);
+    border: none;
+    color: white;
+    font-weight: 800;
+    font-size: 1.2rem;
+    padding: 18px 0;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
+}
+.subscribe:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(30, 58, 138, 0.6);
+    background: linear-gradient(90deg, #007bff 0%, #1e3a8a 100%);
+}
+
+/* === VALIDATION MESSAGES === */
+div[id^="validate"] font, #msg font {
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: block;
+    margin-top: 5px;
+    color: #dc3545;
+}

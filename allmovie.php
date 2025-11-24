@@ -1,27 +1,26 @@
 <?php 
 session_start();
-//index.php
+// index.php
 
 include('database_connection.php');
 
 ?>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Male_Fashion Template">
-    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="description" content="Mẫu Website Đặt Vé Phim">
+    <meta name="keywords" content="Đặt vé phim, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>All movie page</title>
+    <title>Trang tất cả phim</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
-
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -30,9 +29,8 @@ include('database_connection.php');
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="  text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">    
-
 </head>
 
 <body>
@@ -40,16 +38,15 @@ include('database_connection.php');
     <?php 
     include("header.php");
     ?>
-    <!-- Page Content -->
+    <!-- Nội dung trang -->
     <div class="container">
         <div class="row">
         	
             <div class="col-md-3">                				
 				
 				<div class="list-group">
-					<h3>categroy</h3>
+					<h3>Thể loại</h3>
                     <?php
-
                     $query = "
                     SELECT DISTINCT(categroy) FROM add_movie WHERE status = '1' ORDER BY categroy DESC
                     ";
@@ -64,12 +61,11 @@ include('database_connection.php');
                     </div>
                     <?php    
                     }
-
                     ?>
                 </div>
 				
 				<div class="list-group">
-					<h3> language</h3>
+					<h3>Ngôn ngữ</h3>
 					<?php
                     $query = "
                     SELECT DISTINCT(language) FROM add_movie WHERE status = '1' ORDER BY language DESC
@@ -92,19 +88,16 @@ include('database_connection.php');
             <div class="col-md-9">
             	<br />
                 <div class="row filter_data">
-
+                    <!-- Kết quả phim được lọc sẽ hiển thị ở đây -->
                 </div>
             </div>
         </div>
 
     </div>
-    <?php
 
+    <?php
     include("footer.php");
     ?>
-<style>
-
-</style>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -115,7 +108,6 @@ include('database_connection.php');
     <script src="js/jquery.countdown.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/mixitup.min.js"></script>
-  
     <script src="js/main.js"></script>
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -172,5 +164,4 @@ $(document).ready(function(){
 </script>
 
 </body>
-
 </html>

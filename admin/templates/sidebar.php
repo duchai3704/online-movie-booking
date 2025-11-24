@@ -24,6 +24,13 @@
               Add Movie
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="food_orders.php">
+              <span data-feather="users"></span>
+              Quản lý Combos
+            </a>
+          </li>
+          
          <li class="nav-item">
             <a class="nav-link" href="Theater_and_show.php">
               <span data-feather="users"></span>
@@ -56,10 +63,22 @@
        
       </div>
     </nav>
+    <?php
+include_once 'Database.php';
+$result = mysqli_query($conn,"SELECT * FROM admin");
 
-
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_array($result)) {
+    ?>
+     
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Hello <?php echo $_SESSION["admin"]; ?></h1>
+        <h1 class="h2">Hello <?php echo $row['name']; ?></h1>
         
       </div>
+  <?php
+  }
+}
+?>
+
+   

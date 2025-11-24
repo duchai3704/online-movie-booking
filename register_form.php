@@ -1,203 +1,201 @@
 <!DOCTYPE html>
-<!-- Designined by CodingLab - youtube.com/codinglabyt -->
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <title> Responsive Registration Form | CodingLab </title>
-    <link rel="stylesheet" href="css/register.css">
-    <script src="js/jquery.min.js"></script>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng Ký Tài Khoản</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f0f2f5;
+    font-size: 18px; /* font mặc định lớn hơn */
+}
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 40px 50px; /* padding to hơn */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.title {
+    text-align: center;
+    font-size: 2.8rem; /* tăng font size */
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box span.details {
+    font-weight: 600;
+    font-size: 1.2rem; /* label to hơn */
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px; /* input cao hơn */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1.1rem; /* font input to hơn */
+}
+
+.input-error {
+    color: #d9534f;
+    font-size: 1rem; /* lỗi to hơn */
+    margin-top: 5px;
+}
+
+.button input {
+    width: 100%;
+    padding: 16px; /* nút cao hơn */
+    background: #007bff;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem; /* font nút to hơn */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.button input:hover {
+    background: #0056b3;
+}
+
+img {
+    max-width: 50%;
+    margin-bottom: 20px;
+}
+</style>
+
+</head>
 <body>
 
-  <div class="container">
-    <center><a href="./index.html"><img src="img/logo.png" alt="" style="margin-top: 80px; width: 50%;"></a></center>
-    <div class="title">Registration</div>
-    <div class="content">
-      <form id="form" action="register.php" method="post" enctype="multipart/form-data" onsubmit="return validate();">
+<div class="container">
+    <center><a href="./index.html"><img src="img/logo.png" alt="Logo"></a></center>
+    <div class="title">Đăng Ký Tài Khoản</div>
+    <form id="form" action="register.php" method="post" enctype="multipart/form-data" onsubmit="return validate();">
         <div class="user-details">
-          <div class="input-box">
-            <span class="details">UserName</span>
-            <input type="text" id="username" name="username" placeholder="Enter your name">
-            <p id="nameerror"></p>
-          </div>
-          <div class="input-box">
-            <span class="details">Email</span>
-            <input type="text" id="email" name="email" placeholder="Enter your Email">
-            <p id="emailerror"></p>
-          </div>
-          <div class="input-box">
-            <span class="details">Phone Number</span>
-            <input type="text" id="number" name="number" placeholder="Enter your Phone Number">
-          	<p id="numbererror"></p>
-          </div>
-          <div class="input-box">
-            <span class="details">City</span>
-            <input type="text" id="city" name="city" placeholder="Enter your City">
-          	<p id="cityerror"></p>
-          </div>
-          <div class="input-box">
-            <span class="details">Password</span>
-            <input type="password" id="password" name="password" placeholder="Enter your password">
-          	<p id="passworderror"></p>
-          </div>
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
-            <input type="password" id="cpassword" name="cpassword" placeholder="Confirm your password">
-          	<p id="cpassworderror"></p>
-          </div>
-          <div class="input-box">
-            <span class="details">Image uploaded (Option)</span>
-            <input type="file" id="image" name="image">
-          </div>
+
+            <div class="input-box">
+                <span class="details">Tên đăng nhập</span>
+                <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập">
+                <p id="nameerror" class="input-error"></p>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Email</span>
+                <input type="text" id="email" name="email" placeholder="Nhập email của bạn">
+                <p id="emailerror" class="input-error"></p>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Số điện thoại</span>
+                <input type="text" id="number" name="number" placeholder="Nhập số điện thoại">
+                <p id="numbererror" class="input-error"></p>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Thành phố</span>
+                <input type="text" id="city" name="city" placeholder="Nhập thành phố">
+                <p id="cityerror" class="input-error"></p>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Mật khẩu</span>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu">
+                <p id="passworderror" class="input-error"></p>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Xác nhận mật khẩu</span>
+                <input type="password" id="cpassword" name="cpassword" placeholder="Nhập lại mật khẩu">
+                <p id="cpassworderror" class="input-error"></p>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Tải ảnh (Tuỳ chọn)</span>
+                <input type="file" id="image" name="image">
+            </div>
+
         </div>
-        <p id="error_para" ></p>
-        <div id="err"></div>
+
         <div class="button">
-          <input type="submit" value="Register" id="submit" name="submit">
+            <input type="submit" value="Đăng Ký" id="submit" name="submit">
         </div>
-      </form>
-    </div>
-  </div>
-<script type="text/javascript">
-  function validate()
-{
- var error="";
- var name = document.getElementById( "username" );
- var email = document.getElementById( "email" );
- var number = document.getElementById( "number" );
- var city = document.getElementById( "city" );
- var password = document.getElementById( "password" );
- var cpassword = document.getElementById( "cpassword" );
+    </form>
+</div>
 
- if( name.value == "" )
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- }
- if(name.value.length <= 2) 
-{
-   error = " <font color='red'>!please not allow 2 and 20 chaecter</font> ";
- 
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- 
-}
-if(!isNaN(name.value)) 
-{
-   error = " <font color='red'>!please only charecter allowed</font> ";
- 
-  document.getElementById( "nameerror" ).innerHTML = error;
-  return false;
- 
-}
+<script>
+function validate() {
+    $(".input-error").text(""); // reset lỗi
+    let name = $("#username").val().trim();
+    let email = $("#email").val().trim();
+    let number = $("#number").val().trim();
+    let city = $("#city").val().trim();
+    let password = $("#password").val().trim();
+    let cpassword = $("#cpassword").val().trim();
+    let valid = true;
 
+    if(name === "") {
+        $("#nameerror").text("Vui lòng nhập tên đăng nhập.");
+        valid = false;
+    } else if(name.length < 3 || name.length > 20) {
+        $("#nameerror").text("Tên đăng nhập phải từ 3 đến 20 ký tự.");
+        valid = false;
+    } else if(!isNaN(name)) {
+        $("#nameerror").text("Tên đăng nhập không được là số.");
+        valid = false;
+    }
 
+    if(email === "") {
+        $("#emailerror").text("Vui lòng nhập email.");
+        valid = false;
+    } else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        $("#emailerror").text("Email không hợp lệ.");
+        valid = false;
+    }
 
+    if(number === "") {
+        $("#numbererror").text("Vui lòng nhập số điện thoại.");
+        valid = false;
+    } else if(number.length !== 10 || isNaN(number)) {
+        $("#numbererror").text("Số điện thoại phải 10 chữ số và là số.");
+        valid = false;
+    }
 
+    if(city === "") {
+        $("#cityerror").text("Vui lòng nhập thành phố.");
+        valid = false;
+    }
 
+    if(password === "") {
+        $("#passworderror").text("Vui lòng nhập mật khẩu.");
+        valid = false;
+    } else if(password.length < 3 || password.length > 10) {
+        $("#passworderror").text("Mật khẩu phải từ 3 đến 10 ký tự.");
+        valid = false;
+    }
 
- else if( email.value == "")
- {
-  error = " <font color='red'>!Requrie Email.</font> ";
-  document.getElementById( "emailerror" ).innerHTML = error;
-  return false;
- }
- else if( email.value.indexOf('@') <= 0 )
- {
-  error = " <font color='red'>! ** @ invail position</font> ";
-  document.getElementById( "emailerror" ).innerHTML = error;
-  return false;
- }
+    if(cpassword === "") {
+        $("#cpassworderror").text("Vui lòng xác nhận mật khẩu.");
+        valid = false;
+    } else if(cpassword !== password) {
+        $("#cpassworderror").text("Mật khẩu không khớp.");
+        valid = false;
+    }
 
- else if ((email.value.charAt(email.value.length-4)!='.') && (email.value.charAt(email.value.length-3)!='.'))
- {
-  error = " <font color='red'>! ** . invaild position</font> ";
-  document.getElementById( "emailerror" ).innerHTML = error;
-  return false;
- }
-
-
-
-
-
-
- else if( number.value == "")
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "numbererror" ).innerHTML = error;
-  return false;
- }
-else if( number.value.length!=10)
- {
-  error = " <font color='red'>! ** mobile number must 10 digit</font> ";
-  document.getElementById( "numbererror" ).innerHTML = error;
-  return false;
- }
-
-else if(isNaN(number.value)){
-  error = " <font color='red'>! ** mobile number must be not allow charecter</font> ";
-  document.getElementById( "numbererror" ).innerHTML = error;
-  return false;
-}
-
-
-
-
- else if( city.value == "" )
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "cityerror" ).innerHTML = error;
-  return false;
- }
-
- else if( password.value == "" )
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "passworderror" ).innerHTML = error;
-  return false;
- }
-
-  if(password.value.length <= 2) 
-{
-   error = " <font color='red'>!not allow 2 and 10 chaecter</font> ";
- 
-  document.getElementById( "passworderror" ).innerHTML = error;
-  return false;
- 
-}
-  if(password.value.length >= 10) 
-{
-   error = " <font color='red'>!not allow 2 and 10 chaecter</font> ";
- 
-  document.getElementById( "passworderror" ).innerHTML = error;
-  return false;
- 
-}
-
-
-else if( cpassword.value == "" )
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "cpassworderror" ).innerHTML = error;
-  return false;
- }
-
-else if( cpassword.value != password.value)
- {
-  error = " <font color='red'>!Conform Password Not Match.</font> ";
-  document.getElementById( "cpassworderror" ).innerHTML = error;
-  return false;
- }
-
- else
- {
-  return true;
- }
+    return valid;
 }
 </script>
+
 </body>
 </html>

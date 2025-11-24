@@ -1,131 +1,147 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title> Login Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgot / Change Password</title>
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="site.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f0f2f5;
+}
+.login-container {
+    max-width: 450px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+.input-group-text {
+    width: 45px;
+    justify-content: center;
+}
+p.error {
+    color: #d9534f;
+    font-size: 0.875rem;
+    margin: 3px 0 10px 0;
+}
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+#msg {
+    text-align: center;
+    margin-top: 15px;
+}
+</style>
 </head>
 <body>
-<div>
-	<div class="parent-container">
 
-		<table width="100%" height="100%">
-		<tr>
-			<td align="center" valign="middle">
-				<div class="loginholder">
-        
-					<table style="background-color:white;" class="table-condensed">
-					<tr>
+<div class="login-container">
+    <h2>Change Password</h2>
 
-  						<a href="./index.html"><img src="img/logo.png" alt="" width="250px"></a>
-					</tr>
-					<tr>
-						<td><b>Email Id:</b></td>
-					</tr>
-					<tr>
-						<td><input type="text" class="inputbox" id="email"/>
-              <br><p id="emailerror"></p></td>
-					</tr>
-					<tr>
-						<td><b>Old Password Id:</b></td>
-					</tr>
-					<tr>
-						<td><input type="password" class="inputbox" id="oldpassword"/>
-              <br><p id="oldpassworderror"></p></td>
-					</tr>
-					<tr>
-						<td><b>New Password:</b></td>
-					</tr>
-					<tr>
-						<td><input type="password" class="inputbox" id="newpassword" />
-              <br><p id="newpassworderror"></p> </td>
-            
-					</tr>
-					<tr>
-						<td><b>Conform Password</b></td>
-					</tr>
-					<tr>
-						<td><input type="password" class="inputbox" id="cpassword"/>
-              <br><p id="cpassworderror"></p><div id="msg"></div></td>
-					</tr>
-					<tr>
-						<td align="center"><br />
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+        <p id="emailerror" class="error"></p>
+    </div>
 
-						 <button class="btn-normal" id="login">Submit</button>
-						</td>
-					</tr>
-				
+    <div class="mb-3">
+        <label class="form-label">Old Password</label>
+        <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="Enter old password">
+        <p id="oldpassworderror" class="error"></p>
+    </div>
 
-					</table>
-        
-				</div>
-			</td>
-		</tr>
-		</table>
-	</div>
+    <div class="mb-3">
+        <label class="form-label">New Password</label>
+        <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="Enter new password">
+        <p id="newpassworderror" class="error"></p>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm new password">
+        <p id="cpassworderror" class="error"></p>
+    </div>
+
+    <button class="btn btn-primary btn-submit" id="login">Submit</button>
+    <p id="msg" class="error"></p>
 </div>
-<script type="text/javascript">
 
-	$(document).ready(function(){
-  $("#login").click(function(){
-    var email = $("#email").val().trim();
-    var oldpassword = $("#oldpassword").val().trim();
-    var newpassword = $("#newpassword").val().trim();
-    var cpassword = $("#cpassword").val().trim();
+<script>
+$(document).ready(function(){
+    $("#login").click(function(e){
+        e.preventDefault();
 
-   
-     if( email == "" )
- {
-  error = " <font color='red'>!Requrie Name.</font> ";
-  document.getElementById( "emailerror" ).innerHTML = error;
-  return false;
- }
+        // Xóa các thông báo cũ
+        $(".error").text('');
+        $("#msg").text('');
 
-  if( oldpassword == "")
- {
-  error = " <font color='red'>!Requrie Email.</font> ";
-  document.getElementById( "oldpassworderror" ).innerHTML = error;
-  return false;
- }
+        var email = $("#email").val().trim();
+        var oldpassword = $("#oldpassword").val().trim();
+        var newpassword = $("#newpassword").val().trim();
+        var cpassword = $("#cpassword").val().trim();
+        var hasError = false;
 
-  if( newpassword == "")
- {
-  error = " <font color='red'>!Requrie Email.</font> ";
-  document.getElementById( "newpassworderror" ).innerHTML = error;
-  return false;
- }
+        if(email == ''){
+            $("#emailerror").text("Please enter your email.");
+            hasError = true;
+        }
+        if(oldpassword == ''){
+            $("#oldpassworderror").text("Please enter old password.");
+            hasError = true;
+        }
+        if(newpassword == ''){
+            $("#newpassworderror").text("Please enter new password.");
+            hasError = true;
+        }
+        if(cpassword == ''){
+            $("#cpassworderror").text("Please confirm new password.");
+            hasError = true;
+        }
+        if(newpassword != '' && cpassword != '' && newpassword != cpassword){
+            $("#cpassworderror").text("Passwords do not match.");
+            hasError = true;
+        }
 
-  if( cpassword == "")
- {
-  error = " <font color='red'>!Requrie Email.</font> ";
-  document.getElementById( "cpassworderror" ).innerHTML = error;
-  return false;
- }
-  if( cpassword != newpassword)
- {
-  error = " <font color='red'>!Password is not Match.</font> ";
-  document.getElementById( "cpassworderror" ).innerHTML = error;
-  return false;
- }
-    $.ajax({
-      url:'forget.php',
-      type:'post',
-      data:{email:email,oldpassword:oldpassword,newpassword:newpassword},
-      success:function(response){
-          if(response == 1){
-                                    window.location = "login.php";
-                                }else{
-                                     error = " <font color='red'>!Invalid UserId.</font> ";
-                                     document.getElementById( "msg" ).innerHTML = error;
-                                      return false;
-                                }
-        $("#message").html(response);
-      }
+        if(hasError) return false;
+
+        // AJAX
+        $.ajax({
+            url: 'forget.php',
+            type: 'POST',
+            data: {
+                email: email,
+                oldpassword: oldpassword,
+                newpassword: newpassword
+            },
+            success: function(response){
+                response = response.trim();
+                if(response == '1'){
+                    // Redirect về trang login/index
+                    window.location.href = "index.php";
+                } else {
+                    $("#msg").text("Invalid email or old password.");
+                }
+            },
+            error: function(){
+                $("#msg").text("Server error. Please try again.");
+            }
+        });
     });
-  });
 });
 </script>
+
 </body>
 </html>

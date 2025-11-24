@@ -1,0 +1,258 @@
+/* ⚪ Phong cách Trắng Tối giản, Cao cấp - Đã chỉnh sửa */
+
+/* Thiết lập Body: Nền trắng, phông chữ sạch sẽ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Phông chữ hiện đại, dễ đọc */
+    background: #f8f9fa; /* Nền trắng ngà nhẹ nhàng hơn */
+    color: #333333; /* Chữ xám đậm */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+/* Tiêu đề chính: Thanh lịch và hiện đại */
+.seat_heading {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e9edf2 100%); /* Nền xám nhạt, tinh tế */
+    padding: 40px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Bóng đổ nhẹ hơn */
+    border-bottom: 3px solid #6c757d; /* Đường viền xám lạnh */
+    text-align: center;
+}
+.seat_heading h3 {
+    color: #495057; /* Chữ xám than chì */
+    font-weight: 700;
+    margin: 0;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Màn hình (Front): Màu nhấn nhẹ nhàng */
+.front {
+    background: linear-gradient(135deg, #dee2e6 0%, #ced4da 100%); /* Nền xám bạc */
+    color: #495057;
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border: 1px solid #adb5bd;
+    text-transform: uppercase;
+}
+
+/* Loại Ghế: Phân cấp rõ ràng */
+.seat_type {
+    background: #ffffff; /* Nền trắng */
+    color: #333333;
+    padding: 15px 25px;
+    margin: 30px 0 20px 0;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Bóng đổ nhẹ hơn */
+    border-left: 5px solid #007bff; /* Màu xanh dương hiện đại */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Khu vực Sơ đồ Ghế: Khối trắng nổi */
+.seatCharts-container {
+    background: #ffffff; /* Nền trắng tinh */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+/* Hộp kiểm tra (Checkbox) cho Ghế */
+input[type="checkbox"].larger {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin: 5px;
+    accent-color: #007bff; /* Màu xanh dương hiện đại */
+    border: 1px solid #adb5bd;
+    border-radius: 4px;
+}
+input[type="checkbox"].larger:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    accent-color: #ced4da;
+    border-color: #ced4da;
+}
+
+/* Số hàng ghế */
+.line {
+    font-weight: 700;
+    font-size: 20px;
+    color: #6c757d; /* Xám lạnh */
+    padding-right: 20px;
+}
+
+/* Thẻ Thông tin Đặt chỗ (Giỏ hàng) */
+.info-card {
+    background: #ffffff; /* Nền trắng nổi bật */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    border: 1px solid #e9ecef;
+    /* Thiết lập Flexbox để dễ dàng căn chỉnh nút */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa các mục theo chiều ngang */
+}
+
+/* Bảng thông tin */
+.info-table {
+    width: 100%;
+    margin-bottom: 25px;
+    border-collapse: collapse; /* Đảm bảo các đường viền bảng hòa hợp */
+}
+.info-table tr {
+    border-bottom: 1px solid #e9ecef; /* Đường kẻ rất nhạt */
+}
+.info-table tr:last-child {
+    border-bottom: none; /* Không có đường viền ở hàng cuối cùng */
+}
+.info-table td {
+    padding: 15px 10px; /* Điều chỉnh padding cho ô */
+    font-size: 16px;
+    vertical-align: middle; /* Căn giữa nội dung theo chiều dọc */
+}
+
+/* Nhãn thông tin - Thêm icon và căn chỉnh */
+.info-label {
+    color: #6c757d; /* Xám lạnh */
+    font-weight: 600;
+    font-size: 17px;
+    text-transform: uppercase;
+    display: flex; /* Dùng flexbox để căn chỉnh icon và chữ */
+    align-items: center; /* Căn giữa icon và chữ theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa icon và chữ */
+}
+.info-label i {
+    color: #007bff; /* Màu xanh cho icon */
+    font-size: 18px; /* Kích thước icon */
+}
+
+/* Giá trị thông tin */
+.info-value {
+    background: #f8f9fa; /* Nền xám ngà nhẹ nhàng */
+    color: #333333; /* Chữ màu xám đậm mặc định */
+    padding: 10px 15px; /* Điều chỉnh padding */
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600; /* Giảm độ đậm của font một chút */
+    font-size: 16px; /* Điều chỉnh kích thước font */
+    border: 1px solid #e9ecef;
+}
+.info-value input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+}
+
+/* Màu đặc biệt cho tổng tiền */
+.info-value.total-price {
+    color: #dc3545; /* Màu đỏ cho tổng tiền */
+    font-weight: 700; /* Nổi bật hơn */
+    font-size: 18px; /* Kích thước lớn hơn */
+}
+
+/* Nút Thanh toán: Hiện đại và thu hút */
+.btn-payment {
+    width: 100%;
+    max-width: 350px; /* Giảm max-width để nút không quá rộng */
+    margin-top: 25px; /* Tăng khoảng cách một chút */
+    background: linear-gradient(45deg, #007bff 0%, #0056b3 100%); 
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+    text-transform: uppercase;
+    display: flex; /* Dùng flexbox để căn giữa icon và chữ */
+    align-items: center;
+    justify-content: center; /* Căn giữa nội dung nút */
+    gap: 10px; /* Khoảng cách giữa icon và chữ trong nút */
+}
+.btn-payment i {
+    font-size: 20px; /* Kích thước icon trong nút */
+}
+
+.btn-payment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+    background: linear-gradient(45deg, #0056b3 0%, #007bff 100%);
+}
+
+/* Thông báo Lỗi */
+#notvalid {
+    color: #dc3545; /* Đỏ lỗi */
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    background: #fff0f0; /* Nền đỏ nhạt */
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #dc3545;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+}
+.modal-content h3 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Chú thích (Legend) */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6c757d;
+    text-transform: uppercase;
+}
+.legend-box {
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    border: 2px solid #adb5bd;
+}
+
+.legend-available { background: #f8f9fa; } /* Nền rất nhạt cho ghế trống */
+.legend-selected { background: #007bff; border-color: #0056b3; } /* Xanh dương cho ghế đang chọn */
+.legend-booked { background: #ced4da; border-color: #adb5bd; opacity: 1; } /* Xám trung tính cho ghế đã đặt */
+      /* Combo Section */
